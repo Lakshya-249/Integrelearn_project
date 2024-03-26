@@ -4,7 +4,9 @@ import Template from "./template";
 function Home() {
   return (
     <div>
-      <Template />
+      <div className="w-[87rem] h-[40rem] bg-gradient-to-br from-[#fdcdb1] to-[#fce1d2] rounded-3xl flex justify-center p-10">
+        <Template />
+      </div>
     </div>
   );
 }
