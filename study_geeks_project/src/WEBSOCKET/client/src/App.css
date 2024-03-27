@@ -1,0 +1,134 @@
+/* App.css */
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .footer {
+    background-color: #f5f5f5;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+.app-container {
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+  }
+  
+  
+  .left-sidebar {
+    width: 20%;
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  .main-content {
+    width: 60%;
+  }
+  
+ 
+  .right-sidebar {
+    width: 20%;
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  .footer {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+  }
+  
+  
+  .MuiTypography-root {
+    margin-bottom: 10px;
+  }
+  
+  .MuiTextField-root {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  
+  .MuiButton-root {
+    margin-right: 10px;
+  }
+  
+ 
+  .MuiButton-root:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease-in-out;
+  }
+  .main-content {
+    overflow-y: auto;
+  }
+  
+  
+  .toggle-btn {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    background-color: #fff;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .left-toggle-btn {
+    left: 0;
+  }
+  
+  .right-toggle-btn {
+    right: 0;
+  }
+
+.left-sidebar {
+    width: 20%;
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  .user-profile {
+    background-color: #cfe8fc; 
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+ 
+  .navigation {
+    background-color: #f0f0f0; 
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  
+  .recent-chats {
+    background-color: #cfe8fc; 
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  
+  .online-users {
+    background-color: #ffcdd2; 
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+ 
+  
