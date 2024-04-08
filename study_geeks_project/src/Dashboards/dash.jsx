@@ -1,18 +1,23 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
   faHome,
+  faTrophy,
+  faChalkboardTeacher,
+  faBookOpen,
+  faBell,
+  faClipboardCheck,
+  faChartBar,
+  faFolderOpen,
   faCalendarAlt,
-  faAward,
-  faGraduationCap,
-  faTimes,
-  faClock,
+  faUser,
+  faQuestionCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import { NavLink, Outlet } from "react-router-dom";
-import ChatPage from "./ChatPage";
+import "./TeacherDashboard.css"; 
 
-function Dash() {
+function Dashboard() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -24,100 +29,111 @@ function Dash() {
   };
 
   return (
-    <div className="relative flex h-full w-screen">
-      {/* open button */}
-      {!isOpen && (
-        <button
-          className="absolute top-2.5 left-5 z-10 bg-[#EABE6C] text-white px-4 py-2 rounded-md shadow-md"
-          onClick={toggleMenu}
-        >
+    <div className="dashboard-container">
+      {/* Sliding menu toggle button */}
+      <button className="menu-toggle" onClick={toggleMenu}>
+        {isOpen ? (
+          <FontAwesomeIcon icon={faHome} />
+        ) : (
           <FontAwesomeIcon icon={faBars} />
-        </button>
-      )}
+        )}
+      </button>
 
       {/* Sliding menu */}
-      <div
-        className={`fixed top-0 left-0 h-full w-56 bg-gray-800 text-white transition-transform transform ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
-      >
-        {/* Close button */}
-        {isOpen && (
-          <button
-            className="absolute top-5 right-5 z-10 bg-[#EABE6C] text-white px-4 py-2 rounded-md shadow-md"
-            onClick={closeMenu}
-          >
-            <FontAwesomeIcon icon={faTimes} />
-          </button>
-        )}
-
-        {/* Menu items */}
-        <ul className="p-4 mt-16">
-          <li className="py-2 flex items-center cursor-pointer">
-            <FontAwesomeIcon icon={faHome} className="mr-2" />
-            <span>
-              <NavLink to="/studentdash/overview">Dashboard</NavLink>
-            </span>
+      <div className={`menu ${isOpen ? "open" : ""}`}>
+        <ul className="menu-items">
+          <li className="menu-item">
+            <Link to="/" onClick={closeMenu}>
+              <FontAwesomeIcon icon={faHome} className="menu-icon" />
+              Home
+            </Link>
           </li>
-          <li className="py-2 flex items-center cursor-pointer">
-            <FontAwesomeIcon icon={faCalendarAlt} className="mr-2" />
-            <span>
-              <NavLink to="/studentdash/classschedule">Schedule</NavLink>
-            </span>
+          <li className="menu-item">
+            <Link to="/achievements" onClick={closeMenu}>
+              <FontAwesomeIcon icon={faTrophy} className="menu-icon" />
+              Achievements
+            </Link>
           </li>
-          <li className="py-2 flex items-center cursor-pointer">
-            <FontAwesomeIcon icon={faAward} className="mr-2" />
-            <span>
-              <NavLink to="/studentdash/evaluation">Achievement</NavLink>
-            </span>
+          <li className="menu-item">
+            <Link to="/classes-scheduled" onClick={closeMenu}>
+              <FontAwesomeIcon
+                icon={faChalkboardTeacher}
+                className="menu-icon"
+              />
+              Classes Scheduled
+            </Link>
           </li>
-          <li className="py-2 flex items-center cursor-pointer">
-            <FontAwesomeIcon icon={faGraduationCap} className="mr-2" />
-            <span>
-              <NavLink to="/studentdash/education">Education</NavLink>
-            </span>
+          <li className="menu-item">
+            <Link to="/education" onClick={closeMenu}>
+              <FontAwesomeIcon icon={faBookOpen} className="menu-icon" />
+              Education
+            </Link>
           </li>
-          <li className="py-2 flex items-center cursor-pointer">
-            <FontAwesomeIcon icon={faClock} className="mr-2" />
-            <span>
-              <NavLink to="/studentdash/pendingdbt">Pending Doubt</NavLink>
-            </span>
+          <li className="menu-item">
+            <Link to="/reminder" onClick={closeMenu}>
+              <FontAwesomeIcon icon={faBell} className="menu-icon" />
+              Reminder
+            </Link>
           </li>
-          <li className="py-2 flex items-center cursor-pointer">
-            <FontAwesomeIcon icon={faClock} className="mr-2" />
-            <span>
-              <NavLink to="/studentdash/progress">Progress</NavLink>
-            </span>
+          <li className="menu-item">
+            <Link to="/evaluation" onClick={closeMenu}>
+              <FontAwesomeIcon icon={faClipboardCheck} className="menu-icon" />
+              Evaluation
+            </Link>
           </li>
-          <li className="py-2 flex items-center cursor-pointer">
-            <FontAwesomeIcon icon={faClock} className="mr-2" />
-            <span>
-              <NavLink to="/studentdash/resources">Resources</NavLink>
-            </span>
+          <li className="menu-item">
+            <Link to="/progress" onClick={closeMenu}>
+              <FontAwesomeIcon icon={faChartBar} className="menu-icon" />
+              Progress
+            </Link>
           </li>
-          <li className="py-2 flex items-center cursor-pointer">
-            <FontAwesomeIcon icon={faClock} className="mr-2" />
-            <span>
-              <NavLink to="/studentdash/profile">Profile</NavLink>
-            </span>
+          <li className="menu-item">
+            <Link to="/resources" onClick={closeMenu}>
+              <FontAwesomeIcon icon={faFolderOpen} className="menu-icon" />
+              Resources
+            </Link>
+          </li>
+          <li className="menu-item">
+            <Link to="/upcoming-events" onClick={closeMenu}>
+              <FontAwesomeIcon icon={faCalendarAlt} className="menu-icon" />
+              Upcoming Events
+            </Link>
+          </li>
+          <li className="menu-item">
+            <Link to="/profile" onClick={closeMenu}>
+              <FontAwesomeIcon icon={faUser} className="menu-icon" />
+              Profile
+            </Link>
+          </li>
+          <li className="menu-item">
+            <Link to="/pending-doubt" onClick={closeMenu}>
+              <FontAwesomeIcon icon={faQuestionCircle} className="menu-icon" />
+              Pending Doubt
+            </Link>
           </li>
         </ul>
       </div>
 
       {/* Main content */}
-      <div
-        className={`flex flex-col justify-start items-center h-full ${
-          isOpen ? "ml-56" : ""
-        } w-full bg-gray-100 text-gray-800 font-sans rounded-r-[.5rem]`}
-      >
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h2 className="text-xl mb-4">Welcome to Your Dashboard!</h2>
+      <div className={`main-content ${isOpen ? "shrink" : ""}`}>
+        {/* Profile and other content */}
+        <div className="profile-content">
+          <h2 className="dashboard-title">Welcome to Your Dashboard!</h2>
+          <p className="dashboard-description">
+            Welcome to Your Teacher's Command Center! Step into your
+            personalized hub for educational excellence. From here, you hold the
+            reins to ignite inspiration, cultivate curiosity, and sculpt minds.
+            This dashboard isn't just a digital space; it's your virtual
+            sanctuary, where every click shapes the future and every insight
+            molds young intellects.
+          </p>
+          <p>Feel free to explore the menu for more options!</p>
+          
         </div>
-        <Outlet />
       </div>
-      <ChatPage />
     </div>
   );
 }
 
-export default Dash;
+export default Dashboard;
+
